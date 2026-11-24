@@ -31,16 +31,10 @@ body {
   -webkit-text-stroke: 1px #111111;
 }
 
-.logo-placeholder {
+.banner-logo {
   width: clamp(28px, 6vh, 48px);
   aspect-ratio: 1;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  border: 2px dashed #ffffff;
-  color: #ffffff;
-  font-size: 12px;
-  font-weight: 700;
+  object-fit: contain;
 }
 
 .bottom-bar {
@@ -56,6 +50,10 @@ body {
   justify-items: center;
   border-top: 2px solid #111111;
   background: #ffffff;
+}
+
+html:not(.auth-ui-hint) body:not(.authenticated) .bottom-bar {
+  grid-template-columns: repeat(2, minmax(0, 1fr));
 }
 
 .bottom-bar img {
@@ -133,13 +131,6 @@ nav {
   opacity: 0.65;
 }
 
-.auth-form .auth-secondary-button {
-  border: 0;
-  background: transparent;
-  color: inherit;
-  text-decoration: underline;
-}
-
 .auth-message {
   min-height: 1.25em;
   margin: 0;
@@ -158,10 +149,10 @@ body.auth-pending {
   visibility: hidden;
 }
 
-body:not(.authenticated) a[href="pictures.html"],
-body:not(.authenticated) a[href="appointments.html"],
-body:not(.authenticated) a[href="locationalTools.html"],
-body:not(.authenticated) [data-auth-logout] {
+html:not(.auth-ui-hint) body:not(.authenticated) a[href="pictures.html"],
+html:not(.auth-ui-hint) body:not(.authenticated) a[href="appointments.html"],
+html:not(.auth-ui-hint) body:not(.authenticated) a[href="locationalTools.html"],
+html:not(.auth-ui-hint) body:not(.authenticated) [data-auth-logout] {
   display: none;
 }
 
@@ -221,6 +212,49 @@ a {
   font-weight: 700;
 }
 
+.animal-picture-card {
+  display: grid;
+  justify-items: center;
+  gap: 16px;
+  width: min(100%, 760px);
+  margin: 0;
+}
+
+.animal-picture-card > img {
+  display: block;
+  width: 100%;
+  max-height: 42vh;
+  object-fit: contain;
+  border-radius: 8px;
+}
+
+.animal-picture-card figcaption {
+  width: 100%;
+}
+
+.animal-picture-card h2 {
+  margin: 0 0 12px;
+  font-size: 24px;
+  overflow-wrap: anywhere;
+}
+
+.animal-picture-description {
+  padding: 16px;
+  border: 2px solid #111111;
+  border-radius: 8px;
+  background: #f4f4f4;
+  text-align: left;
+}
+
+.animal-picture-description h3,
+.animal-picture-description p {
+  margin: 0;
+}
+
+.animal-picture-description h3 {
+  margin-bottom: 8px;
+}
+
 #dark-mode-toggle {
   min-width: 112px;
   min-height: 48px;
@@ -247,11 +281,11 @@ body.dark-mode {
 
 body.dark-mode * {
   color: #ffffff;
-  -webkit-text-stroke: 0.6px #000000;
 }
 
 body.dark-mode a,
 body.dark-mode .setting-label,
+body.dark-mode .animal-picture-description,
 body.dark-mode #dark-mode-toggle {
   border-color: #000000;
   background: #242424;

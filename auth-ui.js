@@ -2,17 +2,31 @@ import { auth } from "./firebase.js";
 import {
   createUserWithEmailAndPassword,
   onAuthStateChanged,
-  sendPasswordResetEmail,
   signInWithEmailAndPassword,
   signOut
 } from "https://www.gstatic.com/firebasejs/10.12.2/firebase-auth.js";
 
 const protectedPage = document.body.hasAttribute("data-auth-required");
+const authHintKey = "animallook-authenticated";
+
+function cacheAuthHint(isAuthenticated) {
+  try {
+    if (isAuthenticated) {
+      localStorage.setItem(authHintKey, "true");
+    } else {
+      localStorage.removeItem(authHintKey);
+    }
+  } catch (error) {
+    console.error("Unable to cache authentication state:", error);
+  }
+}
 
 onAuthStateChanged(
   auth,
   (user) => {
     document.body.classList.toggle("authenticated", Boolean(user));
+    document.documentElement.classList.remove("auth-ui-hint");
+    cacheAuthHint(Boolean(user));
     if (protectedPage) {
       if (user) {
         document.body.classList.remove("auth-pending");
@@ -23,6 +37,9 @@ onAuthStateChanged(
   },
   (error) => {
     console.error("Unable to verify Firebase Authentication state:", error);
+    document.body.classList.remove("authenticated");
+    document.documentElement.classList.remove("auth-ui-hint");
+    cacheAuthHint(false);
     if (protectedPage) {
       window.alert("Unable to verify your sign-in. Please log in again.");
       window.location.replace("login.html");
@@ -64,6 +81,7 @@ for (const form of document.querySelectorAll("[data-auth-form]")) {
         await signInWithEmailAndPassword(auth, email, password);
       }
 
+      cacheAuthHint(true);
       window.location.assign("index.html");
     } catch (error) {
       showError(message, error);
@@ -72,32 +90,6 @@ for (const form of document.querySelectorAll("[data-auth-form]")) {
     }
   });
 
-  const resetButton = form.querySelector("[data-password-reset]");
-  if (resetButton) {
-    resetButton.addEventListener("click", async () => {
-      message.textContent = "";
-      const email = form.elements.namedItem("email").value.trim();
-      if (!email) {
-        message.textContent = "Enter your email address first.";
-        form.elements.namedItem("email").focus();
-        return;
-      }
-
-      resetButton.disabled = true;
-      try {
-        await sendPasswordResetEmail(auth, email);
-        message.textContent = "If an account exists for that email, a password reset email has been sent.";
-      } catch (error) {
-        if (error.code === "auth/user-not-found") {
-          message.textContent = "If an account exists for that email, a password reset email has been sent.";
-        } else {
-          showError(message, error);
-        }
-      } finally {
-        resetButton.disabled = false;
-      }
-    });
-  }
 }
 
 const logoutLink = document.querySelector("[data-auth-logout]");
@@ -106,6 +98,7 @@ if (logoutLink) {
     event.preventDefault();
     try {
       await signOut(auth);
+      cacheAuthHint(false);
       window.location.assign("login.html");
     } catch (error) {
       console.error("Firebase sign-out error:", error);

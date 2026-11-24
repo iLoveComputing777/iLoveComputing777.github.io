@@ -4,12 +4,21 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <title>Main Menu</title>
+    <script>
+      try {
+        if (localStorage.getItem("animallook-authenticated") === "true") {
+          document.documentElement.classList.add("auth-ui-hint");
+        }
+      } catch (error) {
+        console.error("Unable to read cached authentication state:", error);
+      }
+    </script>
     <link rel="stylesheet" href="styles.css">
   </head>
   <body>
     <header class="top-banner">
       <span class="brand-name">AnimalLook</span>
-      <span class="logo-placeholder" role="img" aria-label="Placeholder logo">Logo</span>
+      <img class="banner-logo" src="images/webLogo.png" alt="AnimalLook logo">
     </header>
     <main class="menu-page">
       <h1>Main Menu</h1>

@@ -3,17 +3,26 @@
   <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>Page 4</title>
+    <title>Pictures - AnimalLook</title>
     <link rel="stylesheet" href="styles.css">
   </head>
   <body class="auth-pending" data-auth-required>
     <header class="top-banner">
       <span class="brand-name">AnimalLook</span>
-      <span class="logo-placeholder" role="img" aria-label="Placeholder logo">Logo</span>
+      <img class="banner-logo" src="images/webLogo.png" alt="AnimalLook logo">
     </header>
     <main>
-      <h1>Page 4</h1>
-      
+      <h1>Pictures</h1>
+      <figure class="animal-picture-card">
+        <img id="animal-picture" alt="">
+        <figcaption>
+          <h2 id="animal-picture-name"></h2>
+          <section class="animal-picture-description" aria-labelledby="animal-picture-description-heading">
+            <h3 id="animal-picture-description-heading">Description</h3>
+            <p id="animal-picture-description"></p>
+          </section>
+        </figcaption>
+      </figure>
     </main>
     <div class="bottom-bar">
       <a href="index.html"><img src="images/icon-27.svg" alt="Home"></a>
@@ -24,5 +33,6 @@
     </div>
     <script src="theme.js"></script>
     <script type="module" src="auth-ui.js"></script>
+    <script type="module" src="pictures.js"></script>
   </body>
 </html>
