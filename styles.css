@@ -1,0 +1,133 @@
+:root {
+  color-scheme: light;
+  font-family: Arial, sans-serif;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  min-height: 100vh;
+  background: #ffffff;
+  color: #111111;
+}
+
+.top-banner {
+  width: 100%;
+  height: 8.333vh;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0 clamp(12px, 4vw, 32px);
+  background: #008000;
+}
+
+.brand-name {
+  color: #ffffff;
+  font-size: clamp(18px, 4vw, 32px);
+  font-weight: 700;
+  -webkit-text-stroke: 1px #111111;
+}
+
+.logo-placeholder {
+  width: clamp(28px, 6vh, 48px);
+  aspect-ratio: 1;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border: 2px dashed #ffffff;
+  color: #ffffff;
+  font-size: 12px;
+  font-weight: 700;
+}
+
+.bottom-bar {
+  position: fixed;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  z-index: 1;
+  height: 20vh;
+  display: grid;
+  grid-template-columns: repeat(5, minmax(0, 1fr));
+  align-items: center;
+  justify-items: center;
+  border-top: 2px solid #111111;
+  background: #ffffff;
+}
+
+.bottom-bar img {
+  width: clamp(48px, 8vw, 64px);
+  height: clamp(48px, 8vw, 64px);
+  object-fit: contain;
+}
+
+.bottom-bar a {
+  flex: none;
+  width: 100%;
+  max-width: 72px;
+  height: 72px;
+  min-height: 48px;
+  border: 0;
+  background: transparent;
+}
+
+main {
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 32px;
+  padding: 24px;
+  text-align: center;
+}
+
+h1 {
+  margin: 0;
+  font-size: 32px;
+}
+
+nav {
+  display: flex;
+  gap: 12px;
+  width: min(100%, 360px);
+}
+
+.menu-page {
+  min-height: 91.667vh;
+  justify-content: flex-start;
+  gap: clamp(8px, 3vh, 24px);
+  padding: clamp(12px, 4vh, 32px) 24px calc(20vh + clamp(12px, 4vh, 32px));
+}
+
+.menu-nav {
+  flex-direction: column;
+  align-items: center;
+  gap: clamp(4px, 1.5vh, 12px);
+  width: min(100%, 200px);
+}
+
+.menu-nav a {
+  flex: none;
+  width: 100%;
+  height: clamp(36px, 11.25vw, 45px);
+  min-height: 0;
+}
+
+a {
+  flex: 1;
+  min-height: 48px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  border: 1px solid #111111;
+  border-radius: 8px;
+  color: #111111;
+  background: #ffffff;
+  text-decoration: none;
+  font-size: 16px;
+  font-weight: 700;
+}
