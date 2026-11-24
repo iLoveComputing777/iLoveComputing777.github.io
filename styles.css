@@ -154,6 +154,17 @@ nav {
   font-size: inherit;
 }
 
+body.auth-pending {
+  visibility: hidden;
+}
+
+body:not(.authenticated) a[href="pictures.html"],
+body:not(.authenticated) a[href="appointments.html"],
+body:not(.authenticated) a[href="locationalTools.html"],
+body:not(.authenticated) [data-auth-logout] {
+  display: none;
+}
+
 .menu-page {
   min-height: 91.667vh;
   justify-content: flex-start;

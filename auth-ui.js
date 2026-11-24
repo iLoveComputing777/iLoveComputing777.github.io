@@ -1,10 +1,34 @@
 import { auth } from "./firebase.js";
 import {
   createUserWithEmailAndPassword,
+  onAuthStateChanged,
   sendPasswordResetEmail,
   signInWithEmailAndPassword,
   signOut
 } from "https://www.gstatic.com/firebasejs/10.12.2/firebase-auth.js";
+
+const protectedPage = document.body.hasAttribute("data-auth-required");
+
+onAuthStateChanged(
+  auth,
+  (user) => {
+    document.body.classList.toggle("authenticated", Boolean(user));
+    if (protectedPage) {
+      if (user) {
+        document.body.classList.remove("auth-pending");
+      } else {
+        window.location.replace("login.html");
+      }
+    }
+  },
+  (error) => {
+    console.error("Unable to verify Firebase Authentication state:", error);
+    if (protectedPage) {
+      window.alert("Unable to verify your sign-in. Please log in again.");
+      window.location.replace("login.html");
+    }
+  }
+);
 
 const errorMessages = {
   "auth/invalid-credential": "The email or password is incorrect.",
