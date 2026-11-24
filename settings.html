@@ -3,7 +3,7 @@
   <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>Page 7</title>
+    <title>Settings</title>
     <link rel="stylesheet" href="styles.css">
   </head>
   <body>
@@ -12,8 +12,11 @@
       <span class="logo-placeholder" role="img" aria-label="Placeholder logo">Logo</span>
     </header>
     <main>
-      <h1>Page 7</h1>
-      
+      <h1>Settings</h1>
+      <section class="settings-row" aria-label="Display settings">
+        <div class="setting-label" id="dark-mode-label">Dark mode</div>
+        <button id="dark-mode-toggle" type="button" aria-labelledby="dark-mode-label" aria-pressed="false">Turn on</button>
+      </section>
     </main>
     <div class="bottom-bar">
       <a href="index.html"><img src="images/icon-27.svg" alt="Home"></a>
@@ -22,5 +25,6 @@
       <a href="locationalTools.html"><img src="images/icon-25.svg" alt="Locational tools"></a>
       <a href="settings.html"><img src="images/icon-29.svg" alt="Settings"></a>
     </div>
+    <script src="theme.js"></script>
   </body>
 </html>

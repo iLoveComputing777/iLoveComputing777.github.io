@@ -96,6 +96,64 @@ nav {
   width: min(100%, 360px);
 }
 
+.auth-form {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  width: min(100%, 360px);
+  text-align: left;
+}
+
+.auth-form label {
+  font-weight: 700;
+}
+
+.auth-form input {
+  min-height: 48px;
+  padding: 10px 12px;
+  border: 1px solid #555555;
+  border-radius: 6px;
+  font: inherit;
+}
+
+.auth-form button {
+  min-height: 48px;
+  padding: 10px 16px;
+  border: 2px solid #111111;
+  border-radius: 8px;
+  background: #008000;
+  color: #ffffff;
+  font: inherit;
+  font-weight: 700;
+  cursor: pointer;
+}
+
+.auth-form button:disabled {
+  cursor: wait;
+  opacity: 0.65;
+}
+
+.auth-form .auth-secondary-button {
+  border: 0;
+  background: transparent;
+  color: inherit;
+  text-decoration: underline;
+}
+
+.auth-message {
+  min-height: 1.25em;
+  margin: 0;
+}
+
+.auth-inline-link {
+  display: inline;
+  min-height: 0;
+  border: 0;
+  color: inherit;
+  text-decoration: underline;
+  font-size: inherit;
+}
+
 .menu-page {
   min-height: 91.667vh;
   justify-content: flex-start;
@@ -123,11 +181,84 @@ a {
   display: inline-flex;
   align-items: center;
   justify-content: center;
-  border: 1px solid #111111;
+  border: 2px solid #111111;
   border-radius: 8px;
   color: #111111;
   background: #ffffff;
   text-decoration: none;
   font-size: 16px;
   font-weight: 700;
+}
+
+.settings-row {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 16px;
+  width: min(100%, 560px);
+}
+
+.setting-label {
+  width: min(220px, calc(100% - 128px));
+  height: 56px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border: 2px solid #111111;
+  background: #f4f4f4;
+  font-size: clamp(18px, 4vw, 24px);
+  font-weight: 700;
+}
+
+#dark-mode-toggle {
+  min-width: 112px;
+  min-height: 48px;
+  padding: 12px 18px;
+  border: 1px solid #111111;
+  border-radius: 8px;
+  background: #ffffff;
+  color: #111111;
+  font: inherit;
+  font-weight: 700;
+  cursor: pointer;
+}
+
+#dark-mode-toggle:focus-visible {
+  outline: 3px solid #008000;
+  outline-offset: 3px;
+}
+
+body.dark-mode {
+  color-scheme: dark;
+  background: #121212;
+  color: #ffffff;
+}
+
+body.dark-mode * {
+  color: #ffffff;
+  -webkit-text-stroke: 0.6px #000000;
+}
+
+body.dark-mode a,
+body.dark-mode .setting-label,
+body.dark-mode #dark-mode-toggle {
+  border-color: #000000;
+  background: #242424;
+}
+
+body.dark-mode #dark-mode-toggle {
+  color: #ffffff;
+}
+
+body.dark-mode .bottom-bar {
+  border-color: #000000;
+  background: #121212;
+}
+
+body.dark-mode .bottom-bar a {
+  background: transparent;
+}
+
+body.dark-mode .bottom-bar img {
+  filter: invert(1);
 }
