@@ -1,10 +1,10 @@
 const pictures = [
   {
-    file: "soggyCat.jpg",
+    file: "Soggy Cat.jpg",
     description: "Cats do not like being soaked with water because the water clings to the fur and makes it heavy and uncomfortable"
   },
   {
-    file: "silly cat1.jpg",
+    file: "Silly Cat.jpg",
     description: "Always consult your vet if your pet does something that you're not sure what it means."
   },
   {
@@ -12,19 +12,19 @@ const pictures = [
     description: "Cats can show their tongue for a variety of reasons, one of them being comfort or intentionally having it out to show affection."
   },
   {
-    file: "pukeko bird.jpg",
+    file: "Pukeko Bird.jpg",
     description: "This is the chick of a bird from New Zealand. The most famous picture of this bird has one of its leg photoshopped out"
   },
   {
-    file: "hamster.jpg",
+    file: "Hamster.jpg",
     description: "Hamsters can shove a lot of food into their cheeks to consume it later!."
   },
   {
-    file: "duckling.jpg",
+    file: "Duckling.jpg",
     description: "Most duckling species only take 24 hours to learn how to swim and eat food in the lake after being born."
   },
   {
-    file: "bulldog.jpg",
+    file: "Bulldog.jpg",
     description: "There was once a bulldog called Otto, who got a world record by skateboarding between the legs of 30 people."
   }
 ];

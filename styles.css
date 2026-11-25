@@ -45,7 +45,7 @@ body {
   z-index: 1;
   height: 20vh;
   display: grid;
-  grid-template-columns: repeat(5, minmax(0, 1fr));
+  grid-template-columns: repeat(4, minmax(0, 1fr));
   align-items: center;
   justify-items: center;
   border-top: 2px solid #111111;
