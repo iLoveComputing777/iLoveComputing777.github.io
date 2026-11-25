@@ -110,6 +110,11 @@ h1 {
   padding: 24px 24px calc(20vh + 24px);
 }
 
+.settings-page {
+  justify-content: flex-start;
+  padding-top: 16px;
+}
+
 nav {
   display: flex;
   gap: 12px;
