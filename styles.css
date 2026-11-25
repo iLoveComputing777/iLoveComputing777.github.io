@@ -173,7 +173,6 @@ body.auth-pending {
 
 html:not(.auth-ui-hint) body:not(.authenticated) a[href="pictures.html"],
 html:not(.auth-ui-hint) body:not(.authenticated) a[href="appointments.html"],
-html:not(.auth-ui-hint) body:not(.authenticated) a[href="locationalTools.html"],
 html:not(.auth-ui-hint) body:not(.authenticated) [data-auth-logout] {
   display: none;
 }
@@ -189,7 +188,7 @@ html:not(.auth-ui-hint) body:not(.authenticated) [data-auth-logout] {
   flex-direction: column;
   align-items: center;
   gap: clamp(4px, 1.5vh, 12px);
-  width: min(100%, 200px);
+  width: min(100%, 240px);
 }
 
 .menu-nav a {
@@ -229,6 +228,7 @@ a {
   align-items: center;
   justify-content: center;
   border: 2px solid #111111;
+  border-radius: 8px;
   background: #f4f4f4;
   font-size: clamp(18px, 4vw, 24px);
   font-weight: 700;
@@ -275,6 +275,17 @@ a {
 
 .animal-picture-description h3 {
   margin-bottom: 8px;
+}
+
+.animal-wikipedia-link {
+  display: inline-block;
+  min-height: 0;
+  margin-top: 12px;
+  border: 0;
+  color: #0056b3;
+  background: transparent;
+  font-weight: 700;
+  text-decoration: underline;
 }
 
 .appointment-form,
@@ -425,6 +436,12 @@ body.dark-mode #dark-mode-toggle {
 body.dark-mode .appointment-alert {
   background: #423313;
   color: #fff3cd;
+}
+
+body.dark-mode .animal-wikipedia-link {
+  border: 0;
+  background: transparent;
+  color: #8ab4f8;
 }
 
 body.dark-mode .appointment-delete-button {
