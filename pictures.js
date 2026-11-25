@@ -29,12 +29,24 @@ const pictures = [
   }
 ];
 
-const selectedPicture = pictures[Math.floor(Math.random() * pictures.length)];
 const image = document.querySelector("#animal-picture");
 const name = document.querySelector("#animal-picture-name");
 const description = document.querySelector("#animal-picture-description");
+const nextPictureButton = document.querySelector("#next-animal-picture");
 
-image.src = `images/animalPictures/${selectedPicture.file}`;
-image.alt = selectedPicture.description;
-name.textContent = selectedPicture.file.replace(/\.[^.]+$/, "");
-description.textContent = selectedPicture.description;
+let currentPictureIndex = Math.floor(Math.random() * pictures.length);
+
+function showPicture(picture) {
+  image.src = `images/animalPictures/${picture.file}`;
+  image.alt = picture.description;
+  name.textContent = picture.file.replace(/\.[^.]+$/, "");
+  description.textContent = picture.description;
+}
+
+showPicture(pictures[currentPictureIndex]);
+
+nextPictureButton.addEventListener("click", () => {
+  const nextIndex = Math.floor(Math.random() * (pictures.length - 1));
+  currentPictureIndex = (currentPictureIndex + nextIndex + 1) % pictures.length;
+  showPicture(pictures[currentPictureIndex]);
+});

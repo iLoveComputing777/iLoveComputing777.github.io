@@ -3,7 +3,7 @@
   <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>Page 9</title>
+    <title>Appointments - AnimalLook</title>
     <link rel="stylesheet" href="styles.css">
   </head>
   <body class="auth-pending" data-auth-required>
@@ -11,9 +11,20 @@
       <span class="brand-name">AnimalLook</span>
       <img class="banner-logo" src="images/webLogo.png" alt="AnimalLook logo">
     </header>
-    <main>
-      <h1>Page 9</h1>
-      
+    <div id="appointment-alert" class="appointment-alert" role="status" aria-live="polite" hidden>Appointment soon</div>
+    <main class="appointments-page">
+      <h1>Appointments</h1>
+      <form id="appointment-form" class="appointment-form">
+        <label for="appointment-at">Appointment date and time</label>
+        <input id="appointment-at" name="appointmentAt" type="datetime-local" required>
+        <button type="submit">Add appointment</button>
+        <p id="appointment-status" role="status" aria-live="polite"></p>
+      </form>
+      <section class="appointment-list-section" aria-labelledby="appointment-list-heading">
+        <h2 id="appointment-list-heading">Your appointments</h2>
+        <p id="appointment-empty" hidden>No appointments yet.</p>
+        <ul id="appointment-list" class="appointment-list"></ul>
+      </section>
     </main>
     <div class="bottom-bar">
       <a href="index.html"><img src="images/icon-27.svg" alt="Home"></a>
@@ -24,5 +35,6 @@
     </div>
     <script src="theme.js"></script>
     <script type="module" src="auth-ui.js"></script>
+    <script type="module" src="appointment-manager.js"></script>
   </body>
 </html>

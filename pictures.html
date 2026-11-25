@@ -11,7 +11,8 @@
       <span class="brand-name">AnimalLook</span>
       <img class="banner-logo" src="images/webLogo.png" alt="AnimalLook logo">
     </header>
-    <main>
+    <div id="appointment-alert" class="appointment-alert" role="status" aria-live="polite" hidden>Appointment soon</div>
+    <main class="pictures-page">
       <h1>Pictures</h1>
       <figure class="animal-picture-card">
         <img id="animal-picture" alt="">
@@ -21,6 +22,7 @@
             <h3 id="animal-picture-description-heading">Description</h3>
             <p id="animal-picture-description"></p>
           </section>
+          <button id="next-animal-picture" class="picture-next-button" type="button">Next picture</button>
         </figcaption>
       </figure>
     </main>
@@ -33,6 +35,7 @@
     </div>
     <script src="theme.js"></script>
     <script type="module" src="auth-ui.js"></script>
+    <script type="module" src="appointment-manager.js"></script>
     <script type="module" src="pictures.js"></script>
   </body>
 </html>
