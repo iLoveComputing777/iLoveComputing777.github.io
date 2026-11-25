@@ -8,7 +8,7 @@ const pictures = [
     description: "Always consult your vet if your pet does something that you're not sure what it means."
   },
   {
-    file: "silly cat 2.jpg",
+    file: "Goofy Feline.jpg",
     description: "Cats can show their tongue for a variety of reasons, one of them being comfort or intentionally having it out to show affection."
   },
   {
